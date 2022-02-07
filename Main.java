@@ -15,10 +15,12 @@ public class Main{
       StudentAccount account=new StudentAccount();
 
     // options for undergradute and postgraduate
+
       System.out.println("       SELECT YOUR OPTION");
       System.out.println("1.  undergraduate account");
       System.out.println("2.  postgraduate account");
       int choice = keyboard.nextInt();
+
    // if the choice is undergraduate account
 
    if(choice ==1){
@@ -48,6 +50,8 @@ public class Main{
 
       System.out.println("Enter stationary amount");
       double stationary=keyboard.nextDouble();
+   
+     // showing the account created
 
       String account1= "UG" +number1+number2+number3;
       System.out.println(".........Your acount details.........");
