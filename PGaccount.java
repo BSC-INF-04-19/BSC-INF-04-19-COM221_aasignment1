@@ -9,11 +9,13 @@ public class PGaccount{
   }
   public PGaccount(double substistence, double researchgrant, double tuitionRate, double loanAmount, int yearOfStudy, String name, String program, int accountNumber){
 
-     // invoke superclass' constructor
+     // invoke superclass' constructor //
         super();
             this.substistence=substistence;
             this.researchgrant=researchgrant;
 }
+
+// getters and setters
 public double getSubstistence(){
     return substistence;
 }
