@@ -1,112 +1,185 @@
 import java.util.Scanner;
+
+
 public class Main{
   public static void main(String[]args){
 
-    // generate roandom numbers
-    int number1 =(int)(Math.random()*10);
-     int number2 =(int)(Math.random()*10);
-      int number3 =(int)(Math.random()*10);
-    
+    // generate random numbers
+    int number1=(int)(Math.random() *10);
+    int number2=(int)(Math.random() *10);
+    int number3=(int)(Math.random() *10);
+    boolean run = true;
 
     // input values
-      Scanner keyboard = new Scanner(System.in);
+    Scanner keyboard = new Scanner(System.in);
 
-      // instances
-      StudentAccount account=new StudentAccount();
+    // instances
+    StudentAccount x = new StudentAccount();
 
-    // options for undergradute and postgraduate
+    //prompt the user to choose the account
+    System.out.println("-------------SELECT ACCOUNT OPTIONS---------");
+    System.out.println("1. undergraduate");
+    System.out.println("2. postgraduate");
 
-      System.out.println("       SELECT YOUR OPTION");
-      System.out.println("1.  undergraduate account");
-      System.out.println("2.  postgraduate account");
-      int choice = keyboard.nextInt();
+    // declare choice
+    int choice = keyboard.nextInt();
 
-   // if the choice is undergraduate account
+    // if choice is undergraduate
+    if(choice==1){
+      System.out.println("******** WELCOME TO UNDERGRADUATE ACCOUNT****");
+      System.out.println("**********************************************");
+      System.out.println("1. create account");
+      System.out.println("2. apply for a loan");
+      System.out.println("3. check balancec");
+      System.out.println("4. exit");
 
-   if(choice ==1){
-     System.out.println("     SELECT YOUR OPTION");
-     System.out.println("--------------------------------------");
-     System.out.println("1.   create account");
-     System.out.println("2.    apply for the loan");
-     System.out.println("3.     check the balance");
-     System.out.println("4.    Exit");
-     
-      //  if the choice is creating the account
-     int choice1=keyboard.nextInt();
-      
-      // creating the undergraduate account
-     if( choice1==1){
-       System.out.println("Enter your name");
-       String name=keyboard.next();
+      int choice1=keyboard.nextInt();
+      if(choice1==1){
 
-       System.out.println("Enter year of study");
-       int yearOfStudy=keyboard.nextInt();
+          // creating account
+        System.out.println("Enter your name");
+        String name=keyboard.next();
+        System.out.println("Enter year of study");
+        int year=keyboard.nextInt();
+        System.out.println("Enter account number");
+        int accountnumber=keyboard.nextInt();
+        System.out.println("Enter your program");
+        String program= keyboard.next();
+        System.out.println("Enter subsistence amount");
+        double subsistence=keyboard.nextDouble();
+        System.out.println("Enter stationary amount");
+        double stationary=keyboard.nextDouble();
+        System.out.println("Enter the tuition amount");
+        double tuition=keyboard.nextDouble();
+        System.out.println("");
+
+        // total loan
+        double loanAmount=(subsistence+stationary+tuition);
+        String account1= "UG"+number1+number2+number3;
+
+        System.out.println("***************************");
+
+        System.out.println("");
+        System.out.println("name : " + "  " + name );
+        System.out.println("");
+        System.out.println("year of study : " + program);
+        System.out.println("");
+        System.out.println("subsistence amount : " + subsistence + " MK");
+        System.out.println("");
+        System.out.println("Stationary mount : " + stationary + "MK");
+        System.out.println("");
+        System.out.println("tuition fee amount : " + tuition + "Mk");
+        System.out.println("");
+        System.out.println("account number : " + accountnumber);
+
+
+        System.out.println("");
+        System.out.println("----------------------------------------");
+        
+        System.out.println("Account number : " + accountnumber + "\n\nTotal loan amount: " + loanAmount);
+        System.out.println("********************************************");
+        System.out.println("");
+        System.out.println("...........ENTER YOUR CHOICE..........");
+        System.out.println("1.Apply loan");
+        System.out.println("2. check account balance");
+        System.out.println("3.create another");
+        System.out.println("4.payback");
+
+        int choice2= keyboard.nextInt();
+
+        if(choice2==1){
+          System.out.println("you have successfully applied for a loan");
+           if(choice2==2){
+             System.out.println("your account balance is" + loanAmount);
+             
+           }
+        }
+        else if(choice2==2){
+          System.out.println("currently your balance is 0.00");
+        }
+        else if (choice==3){
+          System.out.println("loading");
+        }
+
+      }}
        
-      System.out.println("Enter the program");
-      String program=keyboard.next();
+     else if(choice==2){
+       System.out.println("***********WELCOME TO POSTGRADUATE ACCOUNT*******");
+       System.out.println("--------------------------------------------------");
+       System.out.println("1. Create account");
+       System.out.println("2. Apply loan");
+       System.out.println("3. Check balance");
+       System.out.println("4. Exit");
 
-      System.out.println("Enter substistence amount");
-      double substistence=keyboard.nextDouble();
+       int choice2=keyboard.nextInt();
+       if(choice2==1){
 
-      System.out.println("Enter stationary amount");
-      double stationary=keyboard.nextDouble();
-   
-     // showing the account created
+          // creating postgraduate account
+          System.out.println("Enter your name:");
+          String name=keyboard.next();
+          System.out.println("Enter year of study:");
+          int year1=keyboard.nextInt();
+          System.out.println("Enter the program:");
+          String program1=keyboard.next();
+          System.out.println("Enter subsistence amount:");
+          double subsistence=keyboard.nextDouble();
+          System.out.println("Enter tuition:");
+          double tuition1=keyboard.nextDouble();
+          System.out.println("Enter the research grant:");
+          double researchGrant=keyboard.nextDouble();
+          if( researchGrant >100000){
+            System.out.println("invalid, enter again:");
+            researchGrant=keyboard.nextDouble();
 
-      String account1= "UG" +number1+number2+number3;
-      System.out.println(".........Your acount details.........");
-      System.out.println("");
-      System.out.println("name     year    program  loanAmount  accountNumber");
-      System.out.println(name + "  " + yearOfStudy + "    " +program + "    " + (account.getTuitionRate()*substistence+substistence)+ " "+ account1);
-     
-     System.out.println("account has been created successfully !!!!!");
-      
-      // account menu
-      System.out.println("..........WELCOME TO THE UNDERGRADUATE ACCOUNT.........");
-      System.out.println("1. check your account balance: ");
-      System.out.println("2. create another account: ");
-      System.out.println("3. payback: ");
+          }
+          else if(researchGrant<50000){
+            System.out.println("invalid, enter again");
+          }
+          double loanAmount=(subsistence+tuition1);
+          double balance=(loanAmount+researchGrant);
 
-     int choice2 = keyboard.nextInt();
-      if (choice2==1){
-        System.out.println("Your account balance is " + (account.getTuitionRate()*  substistence+ substistence));
-      }
+          // showing account 
+          String account2="PG" + number1+number2+number3;
+          System.out.println("");
+          PGaccount y= new PGaccount();
+        
+          System.out.println("SUCCESSFULLY CREATED POSTGRADUATE ACCOUNT ");
 
-     }} // if postgradute is chosen
-   else if(choice==2){
-       System.out.println("      SELECT YOUR OPTION");
-System.out.println("--------------------------------------------");
-System.out.println("1. Create account");
-System.out.println("2. Apply for the loan");
-System.out.println("3. Check balance");
-System.out.println("4. Exit");
+          // 
+          System.out.println("**************************************");
+          System.out.println("");
+          System.out.println("name: " + " " + name);
+          System.out.println("");
+          System.out.println("Year of study:" + year1);
+          System.out.println("");
+          System.out.println("Program:" + program1);
+          System.out.println("");
+          System.out.println("Subsistence amount:" + subsistence);
+          System.out.println("");
+          System.out.println("Researchgrant: " + researchGrant);
+          System.out.println("");
+          System.out.println("Tuition fee:" + tuition1);
 
-int choice1 = keyboard.nextInt();
+          System.out.println("");
+          System.out.println("----------------------------------------------");
+          System.out.println("Account number:" + " " + account2+ "\n\nTotal loan amount is " + loanAmount);
+          System.out.println("***********************************************");
+          System.out.println("");
+          System.out.println("*********ENTER YOUR CHOICE***********");
+          System.out.println("1. Apply loan");
+          System.out.println("2.Check account balance");
+          System.out.println("3.Create another account");
+          System.out.println("4. payback");
 
-//  creating postgraduate account
-//if(choice1 ==1){
- //System.out.println("Enter your name");
- //String name = keyboard.next();
- 
-//System.out.println("Enter year of study");
-//int yearOfStudy =  keyboard.nextInt();
- //System.out.println("Enter your program of study");
- //String program = keyboard.next();
-//System.out.println("Enter subsitence amount");
-//double substistence = keyboard.nextDouble();
-//System.out.println("Enter statioanay amount");
-//double stationary = keyboard.nextDouble();//
+          
+            
+          }
+         
+         
+       }
+     }
 
-   } 
-   
+
+  }
   
-
-
-
-    else{
-       System.out.println(" account does not exist");
-     
   
-}
-
-  }}
